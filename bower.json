@@ -1,18 +1,18 @@
 {
-  "name": "iron-i10n-behavior",
+  "name": "iron-l10n-behavior",
   "version": "1.0.0",
   "authors": [
     "Felix Zapata <fzberlinches@gmail.com>"
   ],
-  "description": "Polymer.i10nBehavior provides a normalized interface for localize strings.",
+  "description": "Polymer.l10nBehavior provides a normalized interface for localize strings.",
   "keywords": [
     "web-component",
     "polymer",
-    "i10l"
+    "l10n"
   ],
-  "main": "iron-i10n.html",
+  "main": "iron-l10n.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/felixzapata/iron-i10n/",
+  "homepage": "https://github.com/felixzapata/iron-l10n-behavior/",
   "ignore": [
     "/.*",
     "/test/"
