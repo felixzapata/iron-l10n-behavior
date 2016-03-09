@@ -15,7 +15,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../../test-fixture/test-fixture.html">
     <!-- Step 1: import the element to test -->
     <link rel="import" href="../l10n-behavior.html">
   </head>
@@ -23,16 +26,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- You can use the document as a place to set up your fixtures. -->
     <test-fixture id="BasicL10n">
-    <template>
-      <x-l10n-basic>
-        <p>{{l10n(12, 'en', { style: "currency", currency: "USD" })}}</p>
-      </x-l10n-basic>
-    </template>
+      <template>
+        <x-l10n-basic>
+          <p>{{l10n(12, 'en', { style: "currency", currency: "USD" })}}</p>
+        </x-l10n-basic>
+      </template>
     </test-fixture>
 
     <script>
       suite('Polymer.l10nBehavior', function() {
-        var keys;
         suiteSetup(function() {
           var l10nTestBehavior = [Polymer.l10nBehavior, {
             properties: {
