@@ -80,6 +80,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         
         /**
+        * Check if some component override the options object for localize
+        *
+        * @return {Boolean}
+        */
+        
+        _existsOptionsToLocale: function(){
+          return Object.keys(this.optionsL10n).length > 0;
+        },
+        
+        /**
         * Localize a string according with the options defined in the behavior.
         *
         * @param {String, Number} msg String or Number to localize.
@@ -90,7 +100,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (typeof language === 'undefined') {
             language = this.defaultLang;
           }
-          return msg.toLocaleString(language, this.optionsL10n);
+          return (this._existsOptionsToLocale()) ? msg.toLocaleString(language, this.optionsL10n) : msg;
         }
         
         
