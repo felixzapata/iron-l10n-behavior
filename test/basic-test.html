@@ -41,7 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
     <test-fixture id="BasicDate">
       <template>
-        <test-date></test-date>
+        <test-date date="1/1/2001"></test-date>
       </template>
     </test-fixture>
     
@@ -59,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, 12);
         });
         
-        test.skip('formatting date', function() {
+        test('formatting date', function() {
           var myEl = fixture('BasicDate');
           assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, 'lunes, 1 de enero de 2001');
         });
