@@ -17,47 +17,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
     <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
-    <link rel="import" href="../../polymer/polymer.html">
     <link rel="import" href="../../test-fixture/test-fixture.html">
+
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../l10n-behavior.html">
+    <link rel="import" href="test-l10n.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
     <test-fixture id="BasicL10n">
       <template>
-        <x-l10n-basic>
-          <p>{{l10n(12, 'en', { style: "currency", currency: "USD" })}}</p>
-        </x-l10n-basic>
+        <test-l10n></test-l10n>
       </template>
     </test-fixture>
 
     <script>
       suite('Polymer.l10nBehavior', function() {
-        suiteSetup(function() {
-          var l10nTestBehavior = [Polymer.l10nBehavior, {
-            properties: {
-            }
-          }];
-          Polymer({
-            is: 'x-l10n-basic',
-            behaviors: [
-              l10nTestBehavior
-            ]
-          });
+ 
+        test('formatting currencies', function() {
+          var myEl = fixture('BasicL10n');
+          assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, '$12.00');
         });
-      
-        suite('basic l10n', function(){
-          var myEl;
-          setup(function() {
-            myEl = fixture('BasicL10n');
-          });
-
-          test('formatting currencies', function() {
-            assert.equal(myEl.querySelectorAll('p').firstChild.nodeValue, '$12.00');
-          });
-        });
+        
       });
     </script>
 
