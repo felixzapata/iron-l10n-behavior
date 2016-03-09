@@ -18,7 +18,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  * l10n-behavior
  * =======================
  *
- * `Polymer.l10nBehavior` provides a normalized interface to localize strings.
+ * `Polymer.l10nBehavior` provides a normalized interface to localize values.
  *
  * #### Usage
  *
@@ -34,9 +34,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  * <link rel="import" href="../l10n-behavior/l10n-behavior.html">
  * ```
  *
- * To translate a string, just do the following:
+ * To localize a value, just do the following:
  * ```html
- * {{doTranslation('string_to_localize', lang)}}
+ * {{l10n(msg, language, options)}}
  * ```
  *
  * ```
@@ -44,39 +44,55 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  * @polymerBehavior l10nBehavior
  */
 
-
     Polymer.l10nBehavior = {
     
         properties: {
-          
+          optionsL10n: {
+            type: Object,
+            value: function() {
+              return {};
+            }
+          },
+          defaultLang: {
+            type: String,
+            value: 'en'
+          },
+          localize: {
+            type: Function,
+            computed: '_computeLocateFn(l10nService)'
+          },
+          l10nService: {
+            type: Function,
+            value: function(){
+              return this._l10n.bind(this);
+            }
+          },
         },
-    
-        // Element Lifecycle
-    
-        ready: function() {
-          // `ready` is called after all elements have been configured, but
-          // propagates bottom-up. This element's children are ready, but parents
-          // are not.
-          //
-          // This is the point where you should make modifications to the DOM (when
-          // necessary), or kick off any processes the element wants to perform.
+        
+        _computeLocateFn:function(srv){
+          return srv;
         },
     
         attached: function() {
-          // `attached` fires once the element and its parents have been inserted
-          // into a document.
-          //
-          // This is a good place to perform any work related to your element's
-          // visual state or active behavior (measuring sizes, beginning animations,
-          // loading resources, etc).
+          if (!window.Intl && typeof window.Intl !== 'object'){
+            console.log('You have no support for ECMAScript Internationalization API Specification');
+          }
         },
-    
-        detached: function() {
-          // The analog to `attached`, `detached` fires when the element has been
-          // removed from a document.
-          //
-          // Use this to clean up anything you did in `attached`.
+        
+        /**
+        * Localize a string according with the options defined in the behavior.
+        *
+        * @param {String, Number} msg String or Number to localize.
+        * @param {String} language (optional) The language to localize the text. By defualt, the language to localize is English.
+        * @return {String} Localized text.
+        */
+        _l10n: function(msg, language) {
+          if (typeof language === 'undefined') {
+            language = this.defaultLang;
+          }
+          return msg.toLocaleString(language, this.optionsL10n);
         }
+        
+        
     };
-  })();
- </script>
+  })();</script>
