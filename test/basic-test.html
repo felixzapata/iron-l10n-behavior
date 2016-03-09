@@ -21,15 +21,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Step 1: import the element to test -->
     <link rel="import" href="test-l10n.html">
+    <link rel="import" href="test-noOptionsL10n.html">
   </head>
   <body>
 
-    <!-- You can use the document as a place to set up your fixtures. -->
+    
     <test-fixture id="BasicL10n">
       <template>
         <test-l10n></test-l10n>
       </template>
     </test-fixture>
+    
+    <test-fixture id="noOptionsForL10n">
+      <template>
+        <test-no-options-l10n></test-no-options-l10n>
+      </template>
+    </test-fixture>
+    
 
     <script>
       suite('Polymer.l10nBehavior', function() {
@@ -37,6 +45,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         test('formatting currencies', function() {
           var myEl = fixture('BasicL10n');
           assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, '$12.00');
+        });
+        
+       test('formatting currencies without options', function() {
+          var myEl = fixture('noOptionsForL10n');
+          assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, 12);
         });
         
       });
