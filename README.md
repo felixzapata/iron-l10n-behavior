@@ -1,4 +1,4 @@
-# iron-l10n-behavior
+# l10n-behavior
 
 Polymer.l10nBehavior provides a normalized interface to localize strings.
 

@@ -1,5 +1,5 @@
 {
-  "name": "iron-l10n-behavior",
+  "name": "l10n-behavior",
   "version": "1.0.0",
   "authors": [
     "Felix Zapata <fzberlinches@gmail.com>"
@@ -10,9 +10,9 @@
     "polymer",
     "l10n"
   ],
-  "main": "iron-l10n.html",
+  "main": "l10n-behavior.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/felixzapata/iron-l10n-behavior/",
+  "homepage": "https://github.com/felixzapata/l10n-behavior/",
   "ignore": [
     "/.*",
     "/test/"
