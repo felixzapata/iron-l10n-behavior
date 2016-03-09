@@ -22,6 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Step 1: import the element to test -->
     <link rel="import" href="test-l10n.html">
     <link rel="import" href="test-noOptionsL10n.html">
+    <link rel="import" href="test-date.html">
   </head>
   <body>
 
@@ -38,6 +39,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
     </test-fixture>
     
+    <test-fixture id="BasicDate">
+      <template>
+        <test-date></test-date>
+      </template>
+    </test-fixture>
+    
 
     <script>
       suite('Polymer.l10nBehavior', function() {
@@ -47,9 +54,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, '$12.00');
         });
         
-       test('formatting currencies without options', function() {
+        test('formatting currencies without options', function() {
           var myEl = fixture('noOptionsForL10n');
           assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, 12);
+        });
+        
+        test('formatting date', function() {
+          var myEl = fixture('BasicDate');
+          assert.equal(myEl.querySelectorAll('p')[0].firstChild.nodeValue, 'lunes, 1 de enero de 2001');
         });
         
       });
