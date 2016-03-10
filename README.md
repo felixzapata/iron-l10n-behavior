@@ -9,9 +9,6 @@ Based on the [ECMAScript Internationalization API Specification](http://ecma-int
 More information about [Intl in the Mozilla Developer Network site](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl).
 
 
-## Work in progress
-
-
 ## Usage
 
 1) Add Polymer.l10nBehavior to the behaviors list in the JS file or script of your component:
