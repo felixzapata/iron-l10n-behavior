@@ -9,6 +9,8 @@
     "web-component",
     "web-components",
     "polymer",
+    "localization",
+    "format",
     "l10n"
   ],
   "main": "l10n-behavior.html",
